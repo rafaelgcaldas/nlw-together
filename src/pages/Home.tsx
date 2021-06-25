@@ -61,8 +61,8 @@ export function Home() {
       <main>
         <div className="main-content">
 
-          {/* <h1>{theme}</h1>
-          <button onClick={toggleTheme}>Toggle</button> */}
+          <h1>{theme}</h1>
+          <button onClick={toggleTheme}>Toggle</button>
           <img src={logoImg} alt="Logo Letmeask" />
           <button className="create-room" onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do Google" />

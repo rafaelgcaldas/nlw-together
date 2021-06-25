@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { ReactNode } from 'react';
 import { createContext } from 'react';
 
@@ -16,7 +17,15 @@ type ThemeContextType = {
 export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeContextProvider(props: ThemeContextProviderProps) {
-  const [currentTheme, setCurrentTheme] = useState<Theme>('light');
+
+  const [currentTheme, setCurrentTheme] = useState<Theme>(() => {
+    const storageTheme = localStorage.getItem('theme');
+    return (storageTheme ?? 'light') as Theme;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', currentTheme);
+  }, [currentTheme]);
 
   function toggleTheme() {
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
