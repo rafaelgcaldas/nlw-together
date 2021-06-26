@@ -17,10 +17,19 @@
       > div {
         display: flex;
         gap: 16px;
+
+        @media(max-width: 540px) {
+          flex-direction: column;
+        }
       }
 
       button {
         height: 40px;
+      }
+
+      @media(max-width: 768px) {
+        flex-direction: column;
+        gap: 8px;
       }
     }
   }
@@ -28,6 +37,7 @@
   main {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 16px;
     
     .room-title {
       margin: 32px 0 24px;
