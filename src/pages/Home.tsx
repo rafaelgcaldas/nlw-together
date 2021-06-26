@@ -16,7 +16,8 @@ import { useTheme } from '../hooks/useTheme';
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
-  const {theme, toggleTheme } = useTheme();
+  // const {theme, toggleTheme } = useTheme();
+  const {theme } = useTheme();
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom() {
@@ -61,8 +62,7 @@ export function Home() {
       <main>
         <div className="main-content">
 
-          <h1>{theme}</h1>
-          <button onClick={toggleTheme}>Toggle</button>
+          {/* <button onClick={toggleTheme}>Toggle</button> */}
           <img src={logoImg} alt="Logo Letmeask" />
           <button className="create-room" onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do Google" />
